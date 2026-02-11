@@ -109,6 +109,431 @@
             margin-bottom: 35px;
             backdrop-filter: blur(5px);
             border: 1px solid var(--border-soft);
+            position: relative;
+        }
+        .music-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+        }
+        .music-icon {
+            background: var(--primary-dark);
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.4rem;
+            box-shadow: 0 8px 14px rgba(0,0,0,0.05);
+        }
+        .music-detail {
+            font-weight: 600;
+            color: var(--accent-text);
+            font-size: 1rem;
+        }
+        .music-detail small {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 400;
+            opacity: 0.7;
+            margin-top: 2px;
+        }
+        #playPauseBtn {
+            background: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: var(--primary-dark);
+            font-size: 1.4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 10px 18px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-soft);
+            transition: all 0.2s;
+        }
+        #playPauseBtn:hover {
+            transform: scale(1.05);
+            background: #fff9f9;
+        }
+        .music-status {
+            font-size: 0.75rem;
+            margin-left: 8px;
+            color: var(--accent-text);
+            opacity: 0.8;
+        }
+
+        .message-box {
+            background: var(--message-bg);
+            backdrop-filter: blur(4px);
+            padding: 28px 25px;
+            border-radius: 36px;
+            margin-bottom: 30px;
+            border: 1.5px solid rgba(255,255,255,0.8);
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
+        }
+        .message-box p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #38505c;
+            margin-bottom: 18px;
+            font-weight: 500;
+        }
+        .message-box p:last-child {
+            margin-bottom: 0;
+        }
+        .theme-pink .message-box p {
+            color: #542c36;
+        }
+        .theme-blue .message-box p {
+            color: #254e5c;
+        }
+        .greeting-icon {
+            font-size: 1.8rem;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 28px;
+            margin: 20px 0 25px;
+        }
+        .answer-card {
+            flex: 1 1 180px;
+            background: rgba(255,255,255,0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 36px;
+            padding: 26px 8px;
+            text-align: center;
+            cursor: pointer;
+            border: 2.5px solid transparent;
+            transition: 0.2s all;
+            border-color: var(--border-soft);
+        }
+        .answer-card:hover {
+            transform: translateY(-6px);
+            background: rgba(255,255,255,0.9);
+            border-color: var(--primary-dark);
+        }
+        .answer-icon {
+            font-size: 3.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+        .answer-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-text);
+        }
+        .selected {
+            background: white;
+            border: 3px solid var(--primary-dark) !important;
+            box-shadow: 0 15px 30px rgba(242,94,122,0.1);
+        }
+
+        .send-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        #sendAnswerBtn {
+            background: var(--btn-yes);
+            border: none;
+            padding: 18px 45px;
+            border-radius: 100px;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border: 2px solid white;
+            box-shadow: 0 10px 0 rgba(0,0,0,0.02);
+            cursor: pointer;
+            transition: 0.08s linear;
+            letter-spacing: 1.2px;
+        }
+        #sendAnswerBtn i {
+            font-size: 1.7rem;
+        }
+        #sendAnswerBtn:active {
+            transform: translateY(5px);
+            box-shadow: 0 5px 0 rgba(0,0,0,0.02);
+        }
+        #sendAnswerBtn:disabled {
+            opacity: 0.5;
+            transform: none;
+            box-shadow: 0 10px 0 rgba(0,0,0,0.02);
+            cursor: not-allowed;
+        }
+        .feedback {
+            font-size: 1rem;
+            color: var(--accent-text);
+            background: rgba(255,255,255,0.7);
+            padding: 12px 26px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 16px;
+        }
+
+        footer {
+            margin-top: 35px;
+            font-size: 0.85rem;
+            color: #4f6a74;
+            text-align: center;
+            border-top: 1px solid var(--border-soft);
+            padding-top: 22px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 500px) {
+            .app-container { padding: 25px 20px; }
+            .message-box p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body id="bodyTheme" class="theme-pink">
+    <div class="app-container">
+        <div class="theme-switcher">
+            <button id="pinkThemeBtn" class="theme-btn pink-active">
+                <i class="fas fa-heart" style="color:#e66a85;"></i> Pink
+            </button>
+            <button id="blueThemeBtn" class="theme-btn">
+                <i class="fas fa-cloud" style="color:#5893a8;"></i> Biru Soft
+            </button>
+        </div>
+
+        <div class="music-section">
+            <div class="music-info">
+                <div class="music-icon">
+                    <i class="fas fa-music"></i>
+                </div>
+                <div class="music-detail">
+                    <span id="songTitle">heaven.mp3</span>
+                    <small id="musicStatus">⋆｡°✩ siap diputar</small>
+                </div>
+            </div>
+            <button id="playPauseBtn">
+                <i id="playIcon" class="fas fa-play"></i>
+            </button>
+        </div>
+        
+        <!-- AUDIO DENGAN 2 SUMBER: file lokal + FALLBACK ONLINE -->
+        <audio id="specialSong" loop preload="auto" crossorigin="anonymous">
+            <source src="heaven.mp3" type="audio/mpeg" id="audioSourceLocal">
+            <source src="https://cdn.pixabay.com/download/audio/2022/10/29/audio_c8f2d0d5f6.mp3?filename=romantic-piano-140581.mp3" type="audio/mpeg">
+            Browser tidak mendukung audio.
+        </audio>
+
+        <div class="message-box">
+            <p>
+                <span class="greeting-icon">🌷</span> Hai.. aku mau ngomong sesuatu yang dari dulu aku pendam. 
+                Setiap kali ngobrol sama kamu, rasanya hari tuh selalu lebih cerah. Entah kenapa, aku jadi suka 
+                sama hal-hal kecil tentang kamu—cara kamu ngetik, tawa kamu, bahkan saat kamu sibuk sendiri.
+            </p>
+            <p>
+                Aku bukan orang yang puitis, tapi semenjak kenal kamu, aku jadi ngerti kenapa orang suka bikin lagu cinta.
+                Kamu tuh kayak lagu favorit yang bisa diputar ulang-ulang tanpa bosen. Dan jujur, aku ngerasa nyaman 
+                banget kalau dekat kamu.
+            </p>
+            <p>
+                Aku nggak berharap lebih, cuma aku berpikir.. mungkin kamu juga ngerasa hal yang sama? 
+                Aku nggak mau nebak-nebak lagi, makanya aku berani bikin halaman ini khusus buat kamu.
+            </p>
+            <p>
+                Jadi.. aku cuma mau nanya satu hal, dan apa pun jawaban kamu, aku bakal nerima dengan senang. 
+                Terima kasih sudah jadi alasan aku tersenyum sejauh ini 💛
+            </p>
+        </div>
+
+        <div class="options">
+            <div id="answerYes" class="answer-card" data-answer="Ya, aku mau! ❤️">
+                <div class="answer-icon"><i class="fas fa-heart"></i></div>
+                <div class="answer-title">YA</div>
+                <div class="answer-desc" style="font-weight: 600; margin-top: 8px; color: var(--accent-text);">aku mau jadi pacarmu</div>
+            </div>
+            <div id="answerNo" class="answer-card" data-answer="Maaf, aku belum siap buat memiliki hubungan. 💙">
+                <div class="answer-icon"><i class="fas fa-star"></i></div>
+                <div class="answer-title">TIDAK</div>
+                <div class="answer-desc" style="font-weight: 600; margin-top: 8px; color: var(--accent-text);">tapi kita tetap berteman</div>
+            </div>
+        </div>
+
+        <div class="send-area">
+            <button id="sendAnswerBtn" disabled>
+                <i class="fab fa-telegram-plane"></i> kirim jawaban ke aku
+            </button>
+            <div id="feedbackMessage" class="feedback">
+                💗 pilih jawaban dulu, ya
+            </div>
+        </div>
+
+        <footer>
+            dibuat dengan hati · untuk kamu yang selalu special 
+        </footer>
+    </div>
+
+    <script>
+        (function() {
+            // ============ 🔐 TOKEN & CHAT ID =============
+            const TELEGRAM_BOT_TOKEN = '8012869497:AAGMKFZDuB1kL9gqKtHZG4Bqf1WZ3743Zww';
+            const TELEGRAM_CHAT_ID = '1933585104';
+            // =============================================
+
+            const body = document.getElementById('bodyTheme');
+            const pinkBtn = document.getElementById('pinkThemeBtn');
+            const blueBtn = document.getElementById('blueThemeBtn');
+            const yesCard = document.getElementById('answerYes');
+            const noCard = document.getElementById('answerNo');
+            const answerCards = [yesCard, noCard];
+            const audio = document.getElementById('specialSong');
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            const playIcon = document.getElementById('playIcon');
+            const sendBtn = document.getElementById('sendAnswerBtn');
+            const feedbackEl = document.getElementById('feedbackMessage');
+            const musicStatus = document.getElementById('musicStatus');
+            const songTitle = document.getElementById('songTitle');
+
+            let selectedAnswerText = null;
+            let isAudioReady = false;
+            let autoplayAttempted = false;
+
+            // ============ 🎵 AUDIO HANDLING ============
+            
+            // Cek apakah file heaven.mp3 ada
+            audio.addEventListener('error', function(e) {
+                console.log('File heaven.mp3 tidak ditemukan, pakai fallback online');
+                songTitle.innerHTML = 'romantic piano (online)';
+                musicStatus.innerHTML = '🎵 mode online';
+                
+                // Paksa pake source ke-2 (online)
+                const sources = audio.getElementsByTagName('source');
+                if (sources.length > 1) {
+                    // Hapus source pertama (lokal) biar gak error terus
+                    sources[0].remove();
+                }
+                audio.load(); // Reload pake source online
+                isAudioReady = true;
+            });
+
+            audio.addEventListener('canplay', function() {
+                isAudioReady = true;
+                musicStatus.innerHTML = '⋆｡°✩ siap diputar';
+                
+                // COBA AUTOPLAY PAKSA
+                if (!autoplayAttempted) {
+                    autoplayAttempted = true;
+                    audio.play().then(() => {
+                        // Berhasil autoplay
+                        playIcon.classList.remove('fa-play');
+                        playIcon.classList.add('fa-pause');
+                        musicStatus.innerHTML = '🔊 autoplay';
+                    }).catch(err => {
+                        // Autoplay diblokir browser
+                        console.log('Autoplay diblokir, user harus klik');
+                        musicStatus.innerHTML = '▶️ klik tombol play';
+                    });
+                }
+            });
+
+            // Set volume kecil
+            audio.volume = 0.4;
+
+            // ============ 🎵 TOGGLE PLAY/PAUSE ============
+            function togglePlay() {
+                if (!isAudioReady) {
+                    feedbackEl.innerText = '⏳ lagu masih loading...';
+                    return;
+                }
+                
+                if (audio.paused) {
+                    audio.play().then(() => {
+                        playIcon.classList.remove('fa-play');
+                        playIcon.classList.add('fa-pause');
+                        musicStatus.innerHTML = '🔊 sedang diputar';
+                    }).catch((err) => {
+                        feedbackEl.innerText = '🔇 Gagal memutar lagu';
+                        console.error(err);
+                    });
+                } else {
+                    audio.pause();
+                    playIcon.classList.remove('fa-pause');
+                    playIcon.classList.add('fa-play');
+                    musicStatus.innerHTML = '⏸️ dijeda';
+                }
+            }
+            
+            playPauseBtn.addEventListener('click', togglePlay);
+
+            // Kalau lagu abis, balik icon play
+            audio.addEventListener('ended', function() {
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play');
+                musicStatus.innerHTML = '↻ selesai, putar lagi';
+            });
+
+            // ============ 🎨 THEME ============
+            function setTheme(themeName) {
+                body.classList.remove('theme-pink', 'theme-blue');
+                body.classList.add(themeName);
+                if (themeName === 'theme-pink') {
+                    pinkBtn.classList.add('pink-active');
+                    blueBtn.classList.remove('blue-active');
+                } else {
+                    blueBtn.classList.add('blue-active');
+                    pinkBtn.classList.remove('pink-active');
+                }
+            }
+            pinkBtn.addEventListener('click', () => setTheme('theme-pink'));
+            blueBtn.addEventListener('click', () => setTheme('theme-blue'));
+
+            // ============ 💝 PILIH JAWABAN ============
+            function clearSelection() {
+                answerCards.forEach(card => card.classList.remove('selected'));
+            }
+            function selectAnswer(card, answerText) {
+                clearSelection();
+                card.classList.add('selected');
+                selectedAnswerText = answerText;
+                sendBtn.disabled = false;
+                feedbackEl.innerHTML = `✨ Kamu milih: "${answerText}"`;
+            }
+            yesCard.addEventListener('click', function() {
+                selectAnswer(yesCard, 'Ya, aku mau! ❤️');
+            });
+            noCard.addEventListener('click', function() {
+                selectAnswer(noCard, 'Maaf, aku belum siap buat memiliki hubungan. 💙');
+            });
+
+            // ============ 📤 KIRIM KE TELEGRAM ============
+            async function sendToTelegram(answer) {
+                const pesan = `💌 *Dia milih:* ${answer}`;
+                const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(pesan)}&parse_mode=Markdown`;
+                try {
+                    feedbackEl.innerHTML = '📨 Mengirim jawaban...';
+                    const response = await fetch(url);
+                    const data = await response.json();
+                   if (data.ok) {
+                        feedbackEl.innerHTML = '✅ Jawaban terkirim! Aku sudah tau sekarang. Terima kasih 💖';
+                        sendBtn.disabled = true;
+                        return true;
+                    } else {
+                        feedbackEl.innerHTML = `❌ Gagal: ${data.description}`;
+                        return false;
+                    }
+                } catch (e            justify-content: space-between;
+            margin-bottom: 35px;
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--border-soft);
         }
         .music-info {
             display: flex;
@@ -488,4 +913,5 @@
     </script>
 </body>
                 </html>
+
 
