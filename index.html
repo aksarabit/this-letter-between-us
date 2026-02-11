@@ -314,7 +314,7 @@
             </button>
         </div>
         <audio id="specialSong" loop preload="auto">
-            <source src="https://cdn.pixabay.com/download/audio/2022/10/29/audio_c8f2d0d5f6.mp3?filename=romantic-piano-140581.mp3" type="audio/mpeg">
+            <source src="heaven.mp3" type="audio/mpeg">
         </audio>
 
         <div class="message-box">
@@ -433,7 +433,7 @@
                 selectAnswer(yesCard, 'Ya, aku mau! ❤️');
             });
             noCard.addEventListener('click', function() {
-                selectAnswer(noCard, 'Maaf, belum bisa jadi pacar. 💙');
+                selectAnswer(noCard, 'Maaf, aku belum siap buat memiliki hubungan. 💙');
             });
 
             // KIRIM KE TELEGRAM
@@ -441,7 +441,7 @@
                 const pesan = `💌 *Dia milih:* ${answer}`;
                 const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(pesan)}&parse_mode=Markdown`;
                 try {
-                    feedbackEl.innerHTML = '📨 Mengirim jawaban ke Telegram...';
+                    feedbackEl.innerHTML = '📨 Mengirim jawaban...';
                     const response = await fetch(url);
                     const data = await response.json();
                    if (data.ok) {
@@ -488,3 +488,4 @@
     </script>
 </body>
                 </html>
+
