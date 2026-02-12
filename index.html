@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>khusus kamu · dari aku</title>
+    <title>untuk kamu · hari valentine</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -22,6 +22,8 @@
             min-height: 100vh;
             padding: 20px;
             background: #f5f7fd;
+            position: relative;
+            overflow-x: hidden;
         }
         :root {
             --bg-secondary: #f8f9fe;
@@ -55,6 +57,199 @@
             --message-bg: rgba(235, 245, 255, 0.8);
         }
 
+        /* ===== ANIMASI VALENTINE ===== */
+        .animation-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            overflow: hidden;
+        }
+
+        /* Animasi Bunga Mawar Realistis */
+        .rose {
+            position: absolute;
+            bottom: -100px;
+            width: 60px;
+            height: 60px;
+            animation: riseRose 4s ease-out forwards;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+        }
+
+        .rose-petal {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .rose-petal:before {
+            content: "🌹";
+            position: absolute;
+            font-size: 60px;
+            left: 0;
+            top: 0;
+            transform-origin: center;
+            animation: swayRose 2s ease-in-out infinite;
+        }
+
+        /* Silver Queen Chocolate Animation */
+        .chocolate {
+            position: absolute;
+            bottom: -50px;
+            width: 70px;
+            height: 70px;
+            animation: riseChocolate 3.5s ease-out forwards;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.15));
+        }
+
+        .chocolate-silver {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, #c0c0c0, #e8e8e8);
+            border-radius: 15px;
+            box-shadow: 0 5px 0 #a0a0a0, 0 8px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(5deg);
+            border: 2px solid #d4d4d4;
+        }
+
+        .chocolate-silver:before {
+            content: "🍫";
+            position: absolute;
+            font-size: 45px;
+            top: 5px;
+            left: 12px;
+            transform: rotate(-10deg);
+        }
+
+        .chocolate-silver:after {
+            content: "Silver Queen";
+            position: absolute;
+            bottom: 8px;
+            font-size: 10px;
+            font-weight: bold;
+            color: #333;
+            text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
+            letter-spacing: 1px;
+            background: rgba(255,255,255,0.7);
+            padding: 2px 6px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        /* Efek Silver Queen yang mengkilap */
+        .chocolate-shine {
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            width: 15px;
+            height: 15px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 50%;
+            filter: blur(3px);
+            animation: shine 2s infinite;
+        }
+
+        /* Animasi Stiker Senyum */
+        .smile-sticker {
+            position: absolute;
+            font-size: 80px;
+            bottom: -100px;
+            animation: riseSmile 3s ease-out forwards;
+            filter: drop-shadow(0 10px 15px rgba(255,200,200,0.3));
+            transform-origin: center;
+        }
+
+        .smile-sticker span {
+            display: inline-block;
+            animation: bounce 1s ease infinite;
+        }
+
+        @keyframes riseRose {
+            0% {
+                bottom: -100px;
+                opacity: 0;
+                transform: scale(0.5) rotate(0deg);
+            }
+            20% {
+                opacity: 1;
+                transform: scale(1.1) rotate(-10deg);
+            }
+            100% {
+                bottom: 80%;
+                opacity: 0;
+                transform: scale(0.8) rotate(20deg);
+            }
+        }
+
+        @keyframes riseChocolate {
+            0% {
+                bottom: -50px;
+                opacity: 0;
+                transform: scale(0.3) rotate(-15deg);
+            }
+            30% {
+                opacity: 1;
+                transform: scale(1.2) rotate(5deg);
+            }
+            100% {
+                bottom: 70%;
+                opacity: 0;
+                transform: scale(0.9) rotate(25deg);
+            }
+        }
+
+        @keyframes riseSmile {
+            0% {
+                bottom: -100px;
+                opacity: 0;
+                transform: scale(0.3) rotate(-20deg);
+            }
+            40% {
+                opacity: 1;
+                transform: scale(1.3) rotate(10deg);
+            }
+            100% {
+                bottom: 75%;
+                opacity: 0;
+                transform: scale(1) rotate(360deg);
+            }
+        }
+
+        @keyframes swayRose {
+            0%, 100% { transform: rotate(-5deg) translateX(0); }
+            50% { transform: rotate(5deg) translateX(10px); }
+        }
+
+        @keyframes shine {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.3); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Multiple roses animation */
+        .rose-bouquet {
+            position: absolute;
+            font-size: 45px;
+            animation: bouquetFloat 5s ease-in-out forwards;
+        }
+
+        @keyframes bouquetFloat {
+            0% { bottom: -50px; opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1.2); }
+            100% { bottom: 60%; opacity: 0; transform: scale(0.8) rotate(15deg); }
+        }
+
         .app-container {
             max-width: 700px;
             width: 100%;
@@ -64,6 +259,8 @@
             padding: 35px 30px;
             box-shadow: var(--shadow), 0 0 0 2px rgba(255,255,255,0.6);
             border: 1px solid var(--border-soft);
+            position: relative;
+            z-index: 100;
         }
 
         .theme-switcher {
@@ -302,6 +499,9 @@
     </style>
 </head>
 <body id="bodyTheme" class="theme-pink">
+    <!-- Container untuk Animasi -->
+    <div id="animationContainer" class="animation-container"></div>
+
     <div class="app-container">
         <div class="theme-switcher">
             <button id="pinkThemeBtn" class="theme-btn pink-active">
@@ -327,59 +527,65 @@
             </button>
         </div>
         
-        <!-- AUDIO dengan multiple source untuk fallback -->
+        <!-- AUDIO -->
         <audio id="specialSong" loop preload="auto">
-            <!-- Ganti path ini sesuai lokasi file heaven.mp3 Anda -->
-            <!-- Fallback online -->
             <source src="heaven.mp3" type="audio/mpeg">
             Browser Anda tidak mendukung tag audio.
         </audio>
 
         <div class="message-box">
             <p>
-                <span class="greeting-icon">🌷</span> Hai.. aku mau ngomong sesuatu yang dari dulu aku pendam. 
-                Setiap kali ngobrol sama kamu, rasanya hari tuh selalu lebih cerah. Entah kenapa, aku jadi suka 
-                sama hal-hal kecil tentang kamu—cara kamu ngetik, tawa kamu, bahkan saat kamu sibuk sendiri.
+                <span class="greeting-icon">💌</span> Happy Valentine's Day, untuk kamu yang selalu special di hati aku. 
+                Hari ini mungkin cuma tanggal 14 Februari yang biasa, tapi aku pengin bikin hari ini beda—khusus buat kamu.
             </p>
             <p>
-                Aku bukan orang yang puitis, tapi semenjak kenal kamu, aku jadi ngerti kenapa orang suka bikin lagu cinta.
-                Kamu tuh kayak lagu favorit yang bisa diputar ulang-ulang tanpa bosen. Dan jujur, aku ngerasa nyaman 
-                banget kalau dekat kamu.
+                Aku cuma mau bilang, terima kasih sudah hadir di hidup aku. Kamu tuh alasan kenapa senyum aku lebih sering muncul, 
+                kenapa hari-hari terasa lebih ringan, dan kenapa aku jadi percaya kalau hal baik itu nyata.
             </p>
             <p>
-                Aku nggak berharap lebih, cuma aku berpikir.. mungkin kamu juga ngerasa hal yang sama? 
-                Aku nggak mau nebak-nebak lagi, makanya aku berani bikin halaman ini khusus buat kamu.
+                Aku nggak punya coklat atau bunga mawar untuk dikasih ke kamu secara langsung. 
+                Tapi aku punya lagu ini, dan kata-kata ini, yang aku tulis khusus dari hati aku.
             </p>
             <p>
-                Jadi.. aku cuma mau nanya satu hal, dan apa pun jawaban kamu, aku bakal nerima dengan senang. 
-                Terima kasih sudah jadi alasan aku tersenyum sejauh ini 💛
+                Semoga di hari Valentine ini kamu dikelilingi kebahagiaan, dan semoga aku juga boleh jadi salah satu alasan kamu tersenyum hari ini 💛
+            </p>
+            <p style="text-align: right; margin-top: 25px; font-style: italic;">
+                — dari seseorang yang diam-diam happy karena kenal kamu
             </p>
         </div>
 
+        <!-- OPSI VALENTINE DENGAN ANIMASI -->
         <div class="options">
-            <div id="answerYes" class="answer-card" data-answer="Ya, aku mau! ❤️">
+            <div id="answerYes" class="answer-card" data-answer="Aku terima kasih dan pesanmu bikin hariku indah! 🌹">
                 <div class="answer-icon"><i class="fas fa-heart"></i></div>
-                <div class="answer-title">YA</div>
-                <div class="answer-desc">aku mau jadi pacarmu</div>
+                <div class="answer-title">🌹 TERHARU</div>
+                <div class="answer-desc">pesanmu bikin hariku indah</div>
             </div>
-            <div id="answerNo" class="answer-card" data-answer="Maaf, aku belum siap buat memiliki hubungan. 💙">
+            
+            <div id="answerNo" class="answer-card" data-answer="Aku bacanya sambil senyum, makasih ya valentine ini jadi spesial 💕">
                 <div class="answer-icon"><i class="fas fa-star"></i></div>
-                <div class="answer-title">TIDAK</div>
-                <div class="answer-desc">tapi kita tetap berteman</div>
+                <div class="answer-title">✨ SENYUM</div>
+                <div class="answer-desc">aku tersenyum bacanya</div>
             </div>
+        </div>
+        
+        <div id="answerChocolate" class="answer-card" style="flex: 0 0 100%; margin-top: -10px; max-width: 300px; margin-left: auto; margin-right: auto;" data-answer="Semoga kamu juga happy valentine, virtual chocolate for you! 🍫">
+            <div class="answer-icon"><i class="fas fa-gift"></i></div>
+            <div class="answer-title">🍫 COKLAT</div>
+            <div class="answer-desc">Silver Queen untuk kamu</div>
         </div>
 
         <div class="send-area">
             <button id="sendAnswerBtn" disabled>
-                <i class="fab fa-telegram-plane"></i> kirim jawaban ke aku
+                <i class="fab fa-telegram-plane"></i> kirim balasan valentine
             </button>
             <div id="feedbackMessage" class="feedback">
-                💗 pilih jawaban dulu, ya
+                💗 pilih salah satu reaksi valentine, ya
             </div>
         </div>
 
         <footer>
-            dibuat dengan hati · untuk kamu yang selalu special 
+            dibuat dengan cinta · 14 februari · hari kasih sayang 
         </footer>
     </div>
 
@@ -398,7 +604,8 @@
             const blueBtn = document.getElementById('blueThemeBtn');
             const yesCard = document.getElementById('answerYes');
             const noCard = document.getElementById('answerNo');
-            const answerCards = [yesCard, noCard];
+            const chocolateCard = document.getElementById('answerChocolate');
+            const answerCards = [yesCard, noCard, chocolateCard];
             const audio = document.getElementById('specialSong');
             const playPauseBtn = document.getElementById('playPauseBtn');
             const playIcon = document.getElementById('playIcon');
@@ -406,33 +613,26 @@
             const feedbackEl = document.getElementById('feedbackMessage');
             const musicStatus = document.getElementById('musicStatus');
             const songTitle = document.getElementById('songTitle');
+            const animContainer = document.getElementById('animationContainer');
 
             let selectedAnswerText = null;
             let isAudioReady = false;
-            let isPlaying = false;
 
-            // ============ 🎵 AUDIO HANDLING ============
-            
-            // Set volume
+            // ============ 🎵 AUDIO ============
             audio.volume = 0.4;
 
-            // Cek apakah audio bisa dimainkan
             audio.addEventListener('canplaythrough', function() {
                 isAudioReady = true;
                 musicStatus.innerHTML = '⋆｡°✩ siap diputar';
-                console.log('Audio siap');
             });
 
             audio.addEventListener('error', function(e) {
-                console.log('File heaven.mp3 tidak ditemukan, mencoba fallback online');
-                songTitle.innerHTML = 'romantic piano (online)';
-                musicStatus.innerHTML = '🎵 mode online';
-                
-                // Audio akan otomatis coba source berikutnya
+                console.log('File heaven.mp3 tidak ditemukan');
+                songTitle.innerHTML = 'Heaven (file tidak ada)';
+                musicStatus.innerHTML = '❌ file musik tidak ditemukan';
                 isAudioReady = true;
             });
 
-            // Handle play/pause dengan promise
             function togglePlay() {
                 if (!isAudioReady) {
                     feedbackEl.innerText = '⏳ lagu masih loading...';
@@ -440,43 +640,30 @@
                 }
                 
                 if (audio.paused) {
-                    // Play dengan promise
                     audio.play()
                         .then(() => {
                             playIcon.classList.remove('fa-play');
                             playIcon.classList.add('fa-pause');
                             musicStatus.innerHTML = '🔊 sedang diputar';
-                            isPlaying = true;
                         })
                         .catch((err) => {
-                            console.error('Error play:', err);
-                            feedbackEl.innerHTML = '🔇 Klik izinkan autoplay di browser';
-                            musicStatus.innerHTML = '❌ gagal putar';
-                            
-                            // Fallback: kasih tahu user cara manual
-                            setTimeout(() => {
-                                if (audio.paused) {
-                                    feedbackEl.innerHTML = '💡 Klik tombol play lagi ya';
-                                }
-                            }, 2000);
+                            console.error(err);
+                            feedbackEl.innerHTML = '🔇 Gagal memutar lagu';
                         });
                 } else {
                     audio.pause();
                     playIcon.classList.remove('fa-pause');
                     playIcon.classList.add('fa-play');
                     musicStatus.innerHTML = '⏸️ dijeda';
-                    isPlaying = false;
                 }
             }
             
             playPauseBtn.addEventListener('click', togglePlay);
 
-            // Reset icon saat lagu selesai
             audio.addEventListener('ended', function() {
                 playIcon.classList.remove('fa-pause');
                 playIcon.classList.add('fa-play');
                 musicStatus.innerHTML = '↻ selesai, putar lagi';
-                isPlaying = false;
             });
 
             // ============ 🎨 THEME ============
@@ -495,34 +682,209 @@
             pinkBtn.addEventListener('click', () => setTheme('theme-pink'));
             blueBtn.addEventListener('click', () => setTheme('theme-blue'));
 
-            // ============ 💝 PILIH JAWABAN ============
+            // ============ 🌹 ANIMASI BUNGA MAWAR REALISTIS ============
+            function createRoseAnimation() {
+                // Hapus animasi sebelumnya
+                animContainer.innerHTML = '';
+                
+                // Buat 8-12 bunga mawar yang muncul dari bawah
+                const roseCount = 10 + Math.floor(Math.random() * 8);
+                
+                for (let i = 0; i < roseCount; i++) {
+                    setTimeout(() => {
+                        const rose = document.createElement('div');
+                        rose.className = 'rose';
+                        
+                        // Posisi random horizontal
+                        const leftPos = 5 + Math.random() * 90;
+                        rose.style.left = leftPos + '%';
+                        
+                        // Delay random
+                        rose.style.animationDelay = (Math.random() * 0.5) + 's';
+                        
+                        // Ukuran random (variasi)
+                        const size = 40 + Math.floor(Math.random() * 40);
+                        rose.style.width = size + 'px';
+                        rose.style.height = size + 'px';
+                        
+                        // Konten mawar
+                        rose.innerHTML = `
+                            <div class="rose-petal" style="font-size: ${size}px; position: relative;">
+                                <span style="position: absolute; font-size: ${size}px; left: 0; top: 0;">🌹</span>
+                                <span style="position: absolute; font-size: ${size-10}px; left: 5px; top: -5px; opacity: 0.7;">🌸</span>
+                            </div>
+                        `;
+                        
+                        animContainer.appendChild(rose);
+                        
+                        // Hapus setelah animasi selesai
+                        setTimeout(() => {
+                            if (rose.parentNode) rose.remove();
+                        }, 4500);
+                    }, i * 80); // Muncul bertahap
+                }
+                
+                // Tambah kelopak mawar bertebaran
+                for (let i = 0; i < 15; i++) {
+                    setTimeout(() => {
+                        const petal = document.createElement('div');
+                        petal.style.position = 'absolute';
+                        petal.style.bottom = '-20px';
+                        petal.style.left = Math.random() * 100 + '%';
+                        petal.style.fontSize = (20 + Math.random() * 25) + 'px';
+                        petal.style.animation = `riseRose ${3 + Math.random() * 2}s ease-out forwards`;
+                        petal.style.animationDelay = (Math.random() * 0.3) + 's';
+                        petal.innerHTML = '🌹🌸🌷';
+                        petal.style.opacity = '0.7';
+                        animContainer.appendChild(petal);
+                        
+                        setTimeout(() => petal.remove(), 4000);
+                    }, i * 50);
+                }
+            }
+
+            // ============ 🍫 ANIMASI COKLAT SILVER QUEEN ============
+            function createChocolateAnimation() {
+                animContainer.innerHTML = '';
+                
+                // Coklat Silver Queen yang realistis
+                const chocolateCount = 12 + Math.floor(Math.random() * 10);
+                
+                for (let i = 0; i < chocolateCount; i++) {
+                    setTimeout(() => {
+                        const chocolate = document.createElement('div');
+                        chocolate.className = 'chocolate';
+                        
+                        const leftPos = 5 + Math.random() * 90;
+                        chocolate.style.left = leftPos + '%';
+                        
+                        // Variasi ukuran
+                        const size = 60 + Math.floor(Math.random() * 30);
+                        chocolate.style.width = size + 'px';
+                        chocolate.style.height = size + 'px';
+                        
+                        // Variasi rotasi
+                        const rotate = -15 + Math.random() * 30;
+                        
+                        chocolate.innerHTML = `
+                            <div class="chocolate-silver" style="transform: rotate(${rotate}deg);">
+                                <div class="chocolate-shine" style="top: ${5 + Math.random() * 10}px; left: ${5 + Math.random() * 15}px;"></div>
+                                <div class="chocolate-shine" style="top: ${30 + Math.random() * 15}px; left: ${30 + Math.random() * 15}px; width: 10px; height: 10px;"></div>
+                                <div style="position: absolute; bottom: 5px; right: 10px; font-size: 12px; color: #ffd700;">✨</div>
+                            </div>
+                        `;
+                        
+                        animContainer.appendChild(chocolate);
+                        
+                        setTimeout(() => {
+                            if (chocolate.parentNode) chocolate.remove();
+                        }, 4000);
+                    }, i * 70);
+                }
+                
+                // Efek glitter silver
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => {
+                        const glitter = document.createElement('div');
+                        glitter.style.position = 'absolute';
+                        glitter.style.bottom = '0px';
+                        glitter.style.left = Math.random() * 100 + '%';
+                        glitter.style.fontSize = '20px';
+                        glitter.style.animation = `riseChocolate ${2 + Math.random() * 2}s ease-out forwards`;
+                        glitter.style.animationDelay = (Math.random() * 0.5) + 's';
+                        glitter.innerHTML = '✨💫⭐';
+                        glitter.style.opacity = '0.8';
+                        animContainer.appendChild(glitter);
+                        
+                        setTimeout(() => glitter.remove(), 3500);
+                    }, i * 40);
+                }
+            }
+
+            // ============ ✨ ANIMASI SENYUM ============
+            function createSmileAnimation() {
+                animContainer.innerHTML = '';
+                
+                const smileCount = 15;
+                const smiles = ['😊', '😌', '🥰', '😍', '💕', '✨', '⭐', '☺️', '😇', '💖'];
+                
+                for (let i = 0; i < smileCount; i++) {
+                    setTimeout(() => {
+                        const smile = document.createElement('div');
+                        smile.className = 'smile-sticker';
+                        
+                        const leftPos = 5 + Math.random() * 90;
+                        smile.style.left = leftPos + '%';
+                        smile.style.fontSize = (40 + Math.random() * 50) + 'px';
+                        
+                        const randomSmile = smiles[Math.floor(Math.random() * smiles.length)];
+                        smile.innerHTML = `<span>${randomSmile}</span>`;
+                        
+                        // Variasi animasi
+                        smile.style.animation = `riseSmile ${2.5 + Math.random() * 2}s ease-out forwards`;
+                        
+                        animContainer.appendChild(smile);
+                        
+                        setTimeout(() => {
+                            if (smile.parentNode) smile.remove();
+                        }, 4000);
+                    }, i * 60);
+                }
+            }
+
+            // ============ 💝 PILIH REAKSI VALENTINE ============
             function clearSelection() {
                 answerCards.forEach(card => card.classList.remove('selected'));
             }
             
-            function selectAnswer(card, answerText) {
+            function selectAnswer(card, answerText, type) {
                 clearSelection();
                 card.classList.add('selected');
                 selectedAnswerText = answerText;
                 sendBtn.disabled = false;
-                feedbackEl.innerHTML = `✨ Kamu milih: "${answerText}"`;
+                feedbackEl.innerHTML = `✨ Kamu milih: ${card.querySelector('.answer-title').innerHTML}`;
+                
+                // Trigger animasi sesuai pilihan
+                if (type === 'rose') {
+                    createRoseAnimation();
+                    feedbackEl.innerHTML += ' 🌹 Mawar bermekaran!';
+                } else if (type === 'chocolate') {
+                    createChocolateAnimation();
+                    feedbackEl.innerHTML += ' 🍫 Silver Queen!';
+                } else if (type === 'smile') {
+                    createSmileAnimation();
+                    feedbackEl.innerHTML += ' 😊 Senyum cerah!';
+                }
             }
             
             yesCard.addEventListener('click', function() {
-                selectAnswer(yesCard, 'Ya, aku mau! ❤️');
+                selectAnswer(yesCard, 'Aku terima kasih dan pesanmu bikin hariku indah! 🌹', 'rose');
             });
             
             noCard.addEventListener('click', function() {
-                selectAnswer(noCard, 'Maaf, aku belum siap buat memiliki hubungan. 💙');
+                selectAnswer(noCard, 'Aku bacanya sambil senyum, makasih ya valentine ini jadi spesial 💕', 'smile');
+            });
+
+            chocolateCard.addEventListener('click', function() {
+                selectAnswer(chocolateCard, 'Semoga kamu juga happy valentine, virtual chocolate for you! 🍫', 'chocolate');
             });
 
             // ============ 📤 KIRIM KE TELEGRAM ============
             async function sendToTelegram(answer) {
-                const pesan = `💌 *Dia milih:* ${answer}`;
+                let tambahan = '';
+                if (answer.includes('🌹')) {
+                    tambahan = '\n\n💌 *Dia terharu dan ngirim mawar virtual buat kamu! 🌹*';
+                } else if (answer.includes('💕')) {
+                    tambahan = '\n\n✨ *Dia senyum-senyum bacanya sampe baper! 🥰*';
+                } else if (answer.includes('🍫')) {
+                    tambahan = '\n\n🍫 *Dia kirim coklat Silver Queen virtual! 🎁*';
+                }
+                
+                const pesan = `💖 *Balasan Valentine:*\n${answer}${tambahan}`;
                 const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
                 
                 try {
-                    feedbackEl.innerHTML = '📨 Mengirim jawaban...';
+                    feedbackEl.innerHTML = '📨 Mengirim balasan valentine...';
                     
                     const response = await fetch(url, {
                         method: 'POST',
@@ -539,7 +901,7 @@
                     const data = await response.json();
                     
                     if (data.ok) {
-                        feedbackEl.innerHTML = '✅ Jawaban terkirim! Aku sudah tau sekarang. Terima kasih 💖';
+                        feedbackEl.innerHTML = '✅ Balasan terkirim! Makasih udah baca dan balas pesan ini 💖';
                         sendBtn.disabled = true;
                         return true;
                     } else {
@@ -555,7 +917,7 @@
 
             sendBtn.addEventListener('click', async function() {
                 if (!selectedAnswerText) {
-                    feedbackEl.innerHTML = '💬 Pilih dulu jawaban (Ya / Tidak)';
+                    feedbackEl.innerHTML = '💬 Pilih dulu reaksi Valentine kamu';
                     return;
                 }
                 
@@ -567,11 +929,10 @@
                 }
             });
 
-            // Reset send button jika ganti jawaban setelah sukses kirim
             function reenableHandler() {
                 if (selectedAnswerText) {
                     if (feedbackEl.innerHTML.includes('✅')) {
-                        feedbackEl.innerHTML = '📬 Jawaban diubah, kirim ulang?';
+                        feedbackEl.innerHTML = '📬 Reaksi diubah, kirim ulang?';
                     }
                     sendBtn.disabled = false;
                 }
@@ -579,15 +940,11 @@
             
             yesCard.addEventListener('click', reenableHandler);
             noCard.addEventListener('click', reenableHandler);
+            chocolateCard.addEventListener('click', reenableHandler);
 
-            // ============ 🚫 TIDAK ADA AUTOPLAY ============
-            // Browser modern block autoplay. User HARUS klik tombol play.
-            // Makanya kita tidak usah paksa autoplay.
             musicStatus.innerHTML = '▶️ klik tombol play untuk mulai';
 
         })();
     </script>
 </body>
 </html>
-
-
